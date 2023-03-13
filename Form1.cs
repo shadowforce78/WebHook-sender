@@ -71,6 +71,3 @@ namespace WebhookSender
         }
     }
 }
-
-
-// https://discord.com/api/webhooks/890659594177765456/pyJ0flQw9jBr2umV06ZNwO4x6aOCsHcHqLC9Q5ANyn5NYkkqbUEE2l5SnUaeJRGPVN2D
