@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Net;
-using System.Runtime.CompilerServices;
-using System.Security.Policy;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WebhookSender
@@ -28,46 +20,48 @@ namespace WebhookSender
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
         }
-        static void SendMs(string message, string webhook)
+        static void SendMs(string title, string webhook, string color, string author, string description)
 
         {
 
             WebClient client = new WebClient();
             client.Headers.Add("Content-Type", "application/json");
             // payload for embed
-            string payload = "{\"content\": \"" + message + "\"}";
+            string payload = "{\"embeds\":[{\"title\":" + title + ",\"color\":" + color + ",\"author\":{\"name\":" + author + "},\"description\":" + description + ",}]}";
             client.UploadData(webhook, Encoding.UTF8.GetBytes(payload));
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            SendMs(titleBox.Text, webhookBox.Text, colorBox.Text, authorBox.Text, descriptionBox.Text);
 
-            // if textbox1 is empty, mesasge box error
-            if (textBox1.Text == "")
-            {
-                MessageBox.Show("Cant send an empty message");
-                return;
-            }
+        }
 
-            // if textbox2 dont have the right form error
-            if (textBox2.Text == " ")
-            {
-                MessageBox.Show("Cant send an empty message");
-                return;
-            }
-            if (textBox2.Text == "WebHook")
-            {
-                MessageBox.Show("Invalide WebHook");
-                return;
-            }
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
 
+        }
 
+        private void authorBox_TextChanged(object sender, EventArgs e)
+        {
 
+        }
 
-            // send message to webhook
-            SendMs(this.textBox1.Text, this.textBox2.Text);
+        private void colorBox_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void titleBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void descriptionBox_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
 }
+
+//https://discord.com/api/webhooks/1084963375668269116/grVkFsv5F7MLkHj9w93wakfoiH36MejeomnVIGyhCDULLwtjGyiYUD5kgD0HvGPJMtu3
