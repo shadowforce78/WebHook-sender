@@ -29,7 +29,7 @@ namespace WebhookSender
 
             WebClient client = new WebClient();
             client.Headers.Add("Content-Type", "application/json");
-            // payload for embed
+            // payload for embed 
             string payload = null;
             client.UploadData(webhookLink, Encoding.UTF8.GetBytes(payload));
         }
