@@ -1,0 +1,9 @@
+{
+    "embeds": [{
+      "title": titleBox,
+      "description": descriptionBox,
+      "author": {
+        "name": authorBox
+      }
+    }]
+  }
